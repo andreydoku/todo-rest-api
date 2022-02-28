@@ -19,6 +19,10 @@ app.use( cors() );
 //context root
 app.use( "/" , router );
 
+app.get( "/" , (req,res) => {
+	res.status(200).send( "Welcome to Todo REST API" );
+} );
+
 // copied from cloud.mongodb.com
 const CONNECTION_URL = process.env.CONNECTION_URL;
 
