@@ -2,10 +2,12 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
+import dotenv from "dotenv";
 
 import router from "./controller/todosController.js";
 
 const app = express();
+dotenv.config();
 
 // bodyParser
 app.use( bodyParser.json({limit: "30mb", extended: true }) )
@@ -18,10 +20,10 @@ app.use( cors() );
 app.use( "/" , router );
 
 // copied from cloud.mongodb.com
-const CONNECTION_URL = "mongodb+srv://andreydoku:andreydoku123@cluster0.ftb10.mongodb.net/todo-app?retryWrites=true&w=majority";
+const CONNECTION_URL = process.env.CONNECTION_URL;
 
 //PORT - will be set by Heroku later, otherwise 5000
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT;
 
 console.log( "connecting to DB..." );
 
