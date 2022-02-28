@@ -27,12 +27,12 @@ app.get( "/" , (req,res) => {
 const CONNECTION_URL = process.env.CONNECTION_URL;
 
 //PORT - will be set by Heroku later, otherwise 5000
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5002;
 
-console.log( "connecting to DB..." );
+console.log( "connecting to DB: " + CONNECTION_URL );
 
 //use mongoose to connect (using url and port above)
 mongoose.connect( CONNECTION_URL ) 
-	.then( () => app.listen( PORT , () => console.log("Successfully connected to DB. Port: " + PORT ) ) )
+	.then( () => app.listen( PORT , () => console.log("Successfully connected to DB. Express is running on port: " + PORT ) ) )
 	.catch( () => error => console.log(error.message) );
 
