@@ -29,7 +29,7 @@ const CONNECTION_URL = process.env.CONNECTION_URL;
 //PORT - will be set by Heroku later, otherwise 5000
 const PORT = process.env.PORT || 5002;
 
-console.log( "connecting to DB: " + CONNECTION_URL );
+console.log( "connecting to DB... " );
 
 //use mongoose to connect (using url and port above)
 mongoose.connect( CONNECTION_URL ) 
