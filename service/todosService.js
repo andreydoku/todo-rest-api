@@ -5,19 +5,20 @@ const todosService = {};
 
 todosService.getAllTodos = async () => {
 	
-	// var sampleTodos = [
-		
-	// 	{ title: "todo1" , isDone: false },
-	// 	{ title: "todo2" , isDone: false },
-	// 	{ title: "todo3" , isDone: true  },
-	// ];
-	
-	// return sampleTodos;
-	
 	const allTodos = await Todo.find();//find in DB
 	return allTodos;
 	
 }
+
+
+todosService.updateTodo = async (id,todo) => {
+	
+	const updatedTodo = await Todo.findByIdAndUpdate(id,todo,{new: true});
+	return updatedTodo;
+	
+}
+
+
 
 
 export default todosService;

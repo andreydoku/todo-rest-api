@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const schema = mongoose.Schema({
 	title: String,
-	// isDone: Boolean,
+	isDone: Boolean,
 }); 
 
 const Todo = mongoose.model( "Todo" , schema );
